@@ -26,6 +26,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -39,69 +43,123 @@
     .wrap {
       max-width: 920px;
       margin: 0 auto;
-      padding: 32px 18px 72px;
+      padding: 24px 16px 72px;
+    }
+
+    /* Entrance animations */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatGlow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
     }
 
     .hero {
       background: linear-gradient(135deg, #0f766e 0%, #123f6b 100%);
       color: #fff;
-      padding: 32px 24px;
-      border-radius: 28px;
+      padding: 28px 20px;
+      border-radius: 24px;
       box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      animation: fadeUp 0.7s ease-out forwards;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(255,255,255,0.18), transparent 70%);
+      border-radius: 50%;
+      animation: floatGlow 6s ease-in-out infinite;
+      pointer-events: none;
     }
 
     .hero h1 {
       margin: 0 0 10px;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      line-height: 1.08;
+      font-size: clamp(1.7rem, 6vw, 3.2rem);
+      line-height: 1.1;
     }
 
     .hero p {
       margin: 0;
       max-width: 760px;
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: clamp(0.92rem, 2.4vw, 1rem);
     }
 
     .meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 18px;
+      gap: 10px;
+      margin-top: 16px;
     }
 
     .chip {
-      padding: 10px 14px;
+      padding: 9px 13px;
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.14);
       border: 1px solid rgba(255, 255, 255, 0.18);
-      font-size: 0.95rem;
+      font-size: 0.85rem;
+      transition: background 0.25s ease, transform 0.25s ease;
+    }
+
+    .chip:hover {
+      background: rgba(255, 255, 255, 0.24);
+      transform: translateY(-2px);
     }
 
     .card {
-      margin-top: 18px;
+      margin-top: 16px;
       background: var(--surface);
       border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 24px 22px;
+      border-radius: 22px;
+      padding: 22px 20px;
       box-shadow: var(--shadow);
+      opacity: 0;
+      transform: translateY(18px);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .card.visible {
+      animation: fadeUp 0.6s ease-out forwards;
+    }
+
+    .card:hover {
+      box-shadow: 0 24px 55px rgba(20, 32, 51, 0.14);
+      transform: translateY(-3px);
     }
 
     h2 {
       margin: 0 0 14px;
-      font-size: 1.35rem;
+      font-size: clamp(1.1rem, 3vw, 1.35rem);
       color: var(--primary-dark);
     }
 
     p {
       margin: 0 0 14px;
       color: var(--muted);
+      font-size: clamp(0.92rem, 2.2vw, 1rem);
     }
 
     ul {
       margin: 0;
       padding-left: 20px;
       color: var(--muted);
+      font-size: clamp(0.92rem, 2.2vw, 1rem);
     }
 
     li + li {
@@ -110,7 +168,7 @@
 
     .flow {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 12px;
       margin-top: 16px;
     }
@@ -118,8 +176,15 @@
     .flow-step {
       background: var(--surface-soft);
       border: 1px solid #d4e4ff;
-      border-radius: 18px;
-      padding: 16px;
+      border-radius: 16px;
+      padding: 14px;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .flow-step:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+      background: #e4f0ff;
     }
 
     .flow-step strong {
@@ -129,28 +194,70 @@
     }
 
     .note {
-      padding: 16px 18px;
-      border-radius: 18px;
+      padding: 15px 16px;
+      border-radius: 16px;
       background: var(--accent);
       border: 1px solid #bcebdd;
       color: #12453f;
+      font-size: clamp(0.92rem, 2.2vw, 1rem);
     }
 
     a {
       color: var(--primary-dark);
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--primary);
     }
 
     .footer {
       margin-top: 18px;
       text-align: center;
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
 
-    @media (max-width: 640px) {
+    /* Tablet */
+    @media (max-width: 768px) {
+      .wrap {
+        padding: 20px 14px 56px;
+      }
       .hero,
       .card {
-        border-radius: 22px;
+        border-radius: 20px;
+        padding: 20px 16px;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 480px) {
+      .wrap {
+        padding: 16px 12px 48px;
+      }
+      .hero,
+      .card {
+        border-radius: 18px;
+        padding: 18px 14px;
+      }
+      .meta {
+        gap: 8px;
+      }
+      .chip {
+        font-size: 0.78rem;
+        padding: 7px 11px;
+      }
+      .flow {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
       }
     }
   </style>
@@ -288,7 +395,7 @@
         <li>
           If you use Google Contacts sync, the contact data you send through
           that feature is processed through Google APIs and stored by Google
-          according to Google’s own policies.
+          according to Google's own policies.
         </li>
       </ul>
     </section>
@@ -310,7 +417,7 @@
       <h2>Data Retention and Control</h2>
       <ul>
         <li>You can remove selected scan results and unsaved local entries from within the app.</li>
-        <li>You can delete contacts saved to your device by using the app’s delete features or your device contact manager.</li>
+        <li>You can delete contacts saved to your device by using the app's delete features or your device contact manager.</li>
         <li>You can sign out of your app account and disconnect your Google session where applicable.</li>
         <li>You may contact us if you want to request help regarding account-related data.</li>
       </ul>
@@ -326,7 +433,7 @@
     </section>
 
     <section class="card">
-      <h2>Children’s Privacy</h2>
+      <h2>Children's Privacy</h2>
       <p>
         Smart Contact Scanner is not intended for children under 13. We do not
         knowingly collect personal information from children under 13.
@@ -345,7 +452,7 @@
       <h2>Contact</h2>
       <p class="note">
         If you have questions about this Privacy Policy, contact:
-        <a href="mailto:smart.contact.scanner.pro@gmail.com">smart.contact.scanner.pro@gmail.com"</a>
+        <a href="mailto:smart.contact.scanner.pro@gmail.com">smart.contact.scanner.pro@gmail.com</a>
       </p>
     </section>
 
@@ -353,5 +460,27 @@
       © Smart Contact Scanner
     </p>
   </main>
+
+  <script>
+    // Scroll-reveal for cards using IntersectionObserver
+    document.addEventListener('DOMContentLoaded', function () {
+      var cards = document.querySelectorAll('.card');
+      if (!('IntersectionObserver' in window)) {
+        cards.forEach(function (c) { c.classList.add('visible'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry, i) {
+          if (entry.isIntersecting) {
+            setTimeout(function () {
+              entry.target.classList.add('visible');
+            }, i * 60);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      cards.forEach(function (card) { observer.observe(card); });
+    });
+  </script>
 </body>
 </html>
