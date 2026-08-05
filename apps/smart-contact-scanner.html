@@ -3,11 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta
-    name="description"
-    content="Privacy Policy for Smart Contact Scanner"
-  >
-  <title>Privacy Policy | Smart Contact Scanner</title>
+  <meta name="description" content="Smart Contact Scanner - App info and Privacy Policy">
+  <title>Smart Contact Scanner | Mirfan Tech Solutions</title>
   <style>
     :root {
       --bg: #f4f7fb;
@@ -22,13 +19,8 @@
       --shadow: 0 20px 50px rgba(20, 32, 51, 0.10);
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -46,80 +38,130 @@
       padding: 24px 16px 72px;
     }
 
-    /* Entrance animations */
     @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes floatGlow {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
+      50% { transform: translateY(-8px); }
     }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+      opacity: 0;
+      animation: fadeUp 0.5s ease-out forwards;
+      transition: color 0.2s ease;
+    }
+    .back-link:hover { color: var(--primary-dark); }
 
     .hero {
       background: linear-gradient(135deg, #0f766e 0%, #123f6b 100%);
       color: #fff;
-      padding: 28px 20px;
-      border-radius: 24px;
+      padding: 36px 24px;
+      border-radius: 26px;
       box-shadow: var(--shadow);
       position: relative;
       overflow: hidden;
       opacity: 0;
-      animation: fadeUp 0.7s ease-out forwards;
+      animation: fadeUp 0.7s ease-out 0.1s forwards;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     .hero::before {
       content: "";
       position: absolute;
-      top: -60px;
-      right: -60px;
-      width: 220px;
-      height: 220px;
+      top: -70px;
+      right: -70px;
+      width: 240px;
+      height: 240px;
       background: radial-gradient(circle, rgba(255,255,255,0.18), transparent 70%);
       border-radius: 50%;
       animation: floatGlow 6s ease-in-out infinite;
       pointer-events: none;
     }
 
+    .app-icon-hero {
+      width: 76px;
+      height: 76px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      flex-shrink: 0;
+    }
+
+    .hero-text { flex: 1; min-width: 200px; }
+
     .hero h1 {
-      margin: 0 0 10px;
-      font-size: clamp(1.7rem, 6vw, 3.2rem);
+      margin: 0 0 8px;
+      font-size: clamp(1.7rem, 5vw, 2.6rem);
       line-height: 1.1;
     }
 
     .hero p {
       margin: 0;
-      max-width: 760px;
+      max-width: 600px;
       color: rgba(255, 255, 255, 0.92);
-      font-size: clamp(0.92rem, 2.4vw, 1rem);
+      font-size: clamp(0.92rem, 2.4vw, 1.05rem);
     }
 
-    .meta {
+    .chip-row {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 16px;
+      margin-top: 14px;
     }
 
     .chip {
-      padding: 9px 13px;
+      padding: 8px 13px;
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.14);
       border: 1px solid rgba(255, 255, 255, 0.18);
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       transition: background 0.25s ease, transform 0.25s ease;
     }
+    .chip:hover { background: rgba(255, 255, 255, 0.24); transform: translateY(-2px); }
 
-    .chip:hover {
-      background: rgba(255, 255, 255, 0.24);
-      transform: translateY(-2px);
+    /* Section nav (jump links) */
+    .jump-nav {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .jump-nav a {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      color: var(--text);
+      text-decoration: none;
+      padding: 9px 16px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+    .jump-nav a:hover { transform: translateY(-2px); border-color: var(--primary); }
+
+    .section-title {
+      margin: 40px 0 4px;
+      font-size: clamp(1.3rem, 3.4vw, 1.7rem);
+      color: var(--text);
     }
 
     .card {
@@ -133,15 +175,8 @@
       transform: translateY(18px);
       transition: box-shadow 0.3s ease, transform 0.3s ease;
     }
-
-    .card.visible {
-      animation: fadeUp 0.6s ease-out forwards;
-    }
-
-    .card:hover {
-      box-shadow: 0 24px 55px rgba(20, 32, 51, 0.14);
-      transform: translateY(-3px);
-    }
+    .card.visible { animation: fadeUp 0.6s ease-out forwards; }
+    .card:hover { box-shadow: 0 24px 55px rgba(20, 32, 51, 0.14); transform: translateY(-3px); }
 
     h2 {
       margin: 0 0 14px;
@@ -149,22 +184,9 @@
       color: var(--primary-dark);
     }
 
-    p {
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-size: clamp(0.92rem, 2.2vw, 1rem);
-    }
-
-    ul {
-      margin: 0;
-      padding-left: 20px;
-      color: var(--muted);
-      font-size: clamp(0.92rem, 2.2vw, 1rem);
-    }
-
-    li + li {
-      margin-top: 10px;
-    }
+    p { margin: 0 0 14px; color: var(--muted); font-size: clamp(0.92rem, 2.2vw, 1rem); }
+    ul { margin: 0; padding-left: 20px; color: var(--muted); font-size: clamp(0.92rem, 2.2vw, 1rem); }
+    li + li { margin-top: 10px; }
 
     .flow {
       display: grid;
@@ -180,18 +202,8 @@
       padding: 14px;
       transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
     }
-
-    .flow-step:hover {
-      transform: translateY(-4px);
-      border-color: var(--primary);
-      background: #e4f0ff;
-    }
-
-    .flow-step strong {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--text);
-    }
+    .flow-step:hover { transform: translateY(-4px); border-color: var(--primary); background: #e4f0ff; }
+    .flow-step strong { display: block; margin-bottom: 6px; color: var(--text); }
 
     .note {
       padding: 15px 16px;
@@ -202,14 +214,8 @@
       font-size: clamp(0.92rem, 2.2vw, 1rem);
     }
 
-    a {
-      color: var(--primary-dark);
-      transition: color 0.2s ease;
-    }
-
-    a:hover {
-      color: var(--primary);
-    }
+    a.inline { color: var(--primary-dark); transition: color 0.2s ease; }
+    a.inline:hover { color: var(--primary); }
 
     .footer {
       margin-top: 18px;
@@ -218,38 +224,11 @@
       font-size: 0.9rem;
     }
 
-    /* Tablet */
-    @media (max-width: 768px) {
-      .wrap {
-        padding: 20px 14px 56px;
-      }
-      .hero,
-      .card {
-        border-radius: 20px;
-        padding: 20px 16px;
-      }
-    }
-
-    /* Mobile */
-    @media (max-width: 480px) {
-      .wrap {
-        padding: 16px 12px 48px;
-      }
-      .hero,
-      .card {
-        border-radius: 18px;
-        padding: 18px 14px;
-      }
-      .meta {
-        gap: 8px;
-      }
-      .chip {
-        font-size: 0.78rem;
-        padding: 7px 11px;
-      }
-      .flow {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 640px) {
+      .hero, .card { border-radius: 20px; padding: 20px 16px; }
+      .hero { flex-direction: column; text-align: center; }
+      .flow { grid-template-columns: 1fr; }
+      .jump-nav { justify-content: center; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -264,18 +243,75 @@
 </head>
 <body>
   <main class="wrap">
+    <a class="back-link" href="/">← Mirfan Tech Solutions</a>
+
     <section class="hero">
-      <h1>Privacy Policy</h1>
-      <p>
-        This Privacy Policy explains how <strong>Smart Contact Scanner</strong>
-        collects, uses, stores, and protects information when you use the app.
-      </p>
-      <div class="meta">
-        <div class="chip">App: Smart Contact Scanner</div>
-        <div class="chip">Effective Date: Aug 6, 2026</div>
-        <div class="chip">Contact: smart.contact.scanner.pro@gmail.com</div>
+      <div class="app-icon-hero">📇</div>
+      <div class="hero-text">
+        <h1>Smart Contact Scanner</h1>
+        <p>
+          Smart Contact Scanner is an Android app by Mirfan Tech Solutions that
+          scans photos, automatically detects phone numbers, and lets you save
+          them directly to your device contacts or Google Contacts — no manual
+          typing needed.
+        </p>
+        <div class="chip-row">
+          <div class="chip">App: Smart Contact Scanner</div>
+          <div class="chip">Effective Date: Aug 6, 2026</div>
+          <div class="chip">Contact: smart.contact.scanner.pro@gmail.com</div>
+        </div>
       </div>
     </section>
+
+    <div class="jump-nav">
+      <a href="#about">About the App</a>
+      <a href="#privacy">Privacy Policy</a>
+    </div>
+
+    <!-- ========== ABOUT SECTION ========== -->
+    <h2 class="section-title" id="about">About the App</h2>
+
+    <section class="card">
+      <h2>What This App Does</h2>
+      <p>
+        Whether it's a business card, a printed flyer, or a screenshot with a
+        phone number on it, Smart Contact Scanner reads the image, extracts
+        any phone numbers it finds, and lets you review and save them in
+        seconds.
+      </p>
+      <div class="flow">
+        <div class="flow-step">
+          <strong>1. Select Images</strong>
+          Choose a photo from your gallery.
+        </div>
+        <div class="flow-step">
+          <strong>2. Scan Numbers</strong>
+          The app reads the text and detects phone numbers.
+        </div>
+        <div class="flow-step">
+          <strong>3. Review Results</strong>
+          Extracted numbers are shown before you save anything.
+        </div>
+        <div class="flow-step">
+          <strong>4. Save Contacts</strong>
+          Save to your device or sync with Google Contacts.
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Key Features</h2>
+      <ul>
+        <li>Fast, accurate phone number detection from images</li>
+        <li>Duplicate detection against your existing contacts</li>
+        <li>Optional Google Contacts sync for cross-device access</li>
+        <li>Simple, review-before-you-save workflow</li>
+        <li>Secure account sign-in with Firebase Authentication</li>
+      </ul>
+    </section>
+
+    <!-- ========== PRIVACY POLICY SECTION ========== -->
+    <h2 class="section-title" id="privacy">Privacy Policy</h2>
 
     <section class="card">
       <h2>How the App Works</h2>
@@ -284,25 +320,6 @@
         phone numbers, review them, and then save selected numbers to the
         device contacts or, if enabled by the user, to Google Contacts.
       </p>
-      <div class="flow">
-        <div class="flow-step">
-          <strong>1. Select Images</strong>
-          The app asks for photo or storage access so you can choose images.
-        </div>
-        <div class="flow-step">
-          <strong>2. Scan Numbers</strong>
-          The app reads text from the selected images and detects phone numbers.
-        </div>
-        <div class="flow-step">
-          <strong>3. Review Results</strong>
-          Extracted numbers are shown for review before any save action.
-        </div>
-        <div class="flow-step">
-          <strong>4. Save Contacts</strong>
-          Selected numbers can be saved to device contacts or synced to Google
-          Contacts if you choose that feature.
-        </div>
-      </div>
     </section>
 
     <section class="card">
@@ -449,20 +466,16 @@
     </section>
 
     <section class="card">
-      <h2>Contact</h2>
       <p class="note">
-        If you have questions about this Privacy Policy, contact:
-        <a href="mailto:smart.contact.scanner.pro@gmail.com">smart.contact.scanner.pro@gmail.com</a>
+        If you have questions about this app or its Privacy Policy, contact:
+        <a class="inline" href="mailto:smart.contact.scanner.pro@gmail.com">smart.contact.scanner.pro@gmail.com</a>
       </p>
     </section>
 
-    <p class="footer">
-      © Smart Contact Scanner
-    </p>
+    <p class="footer">© Mirfan Tech Solutions — Smart Contact Scanner</p>
   </main>
 
   <script>
-    // Scroll-reveal for cards using IntersectionObserver
     document.addEventListener('DOMContentLoaded', function () {
       var cards = document.querySelectorAll('.card');
       if (!('IntersectionObserver' in window)) {
@@ -474,7 +487,7 @@
           if (entry.isIntersecting) {
             setTimeout(function () {
               entry.target.classList.add('visible');
-            }, i * 60);
+            }, i * 50);
             observer.unobserve(entry.target);
           }
         });
