@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Mirfan Tech Solutions - Mobile app development studio">
-  <title>Mirfan Tech Solutions</title>
+  <meta name="description" content="Smart Contact Scanner - Scan images and save phone numbers to your contacts instantly">
+  <title>Smart Contact Scanner | Mirfan Tech Solutions</title>
   <style>
     :root {
       --bg: #f4f7fb;
@@ -20,7 +20,6 @@
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -34,7 +33,7 @@
     }
 
     .wrap {
-      max-width: 1000px;
+      max-width: 920px;
       margin: 0 auto;
       padding: 24px 16px 72px;
     }
@@ -49,73 +48,35 @@
       50% { transform: translateY(-8px); }
     }
 
-    @keyframes pulseRing {
-      0% { box-shadow: 0 0 0 0 rgba(15, 118, 110, 0.35); }
-      70% { box-shadow: 0 0 0 14px rgba(15, 118, 110, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(15, 118, 110, 0); }
-    }
-
-    /* Nav */
-    .nav {
-      display: flex;
+    .back-link {
+      display: inline-flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 6px 4px 20px;
-      opacity: 0;
-      animation: fadeUp 0.6s ease-out forwards;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: var(--text);
-    }
-
-    .brand-mark {
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #0f766e, #123f6b);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-weight: 800;
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-
-    .nav a.cta {
-      background: var(--text);
-      color: #fff;
+      gap: 6px;
+      color: var(--muted);
       text-decoration: none;
-      padding: 10px 18px;
-      border-radius: 999px;
       font-size: 0.9rem;
-      font-weight: 600;
-      transition: transform 0.25s ease, background 0.25s ease;
+      margin-bottom: 14px;
+      opacity: 0;
+      animation: fadeUp 0.5s ease-out forwards;
+      transition: color 0.2s ease;
     }
 
-    .nav a.cta:hover {
-      transform: translateY(-2px);
-      background: var(--primary-dark);
-    }
+    .back-link:hover { color: var(--primary-dark); }
 
-    /* Hero */
     .hero {
       background: linear-gradient(135deg, #0f766e 0%, #123f6b 100%);
       color: #fff;
-      padding: 44px 24px;
-      border-radius: 28px;
+      padding: 36px 24px;
+      border-radius: 26px;
       box-shadow: var(--shadow);
       position: relative;
       overflow: hidden;
       opacity: 0;
       animation: fadeUp 0.7s ease-out 0.1s forwards;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     .hero::before {
@@ -123,253 +84,146 @@
       position: absolute;
       top: -70px;
       right: -70px;
-      width: 260px;
-      height: 260px;
+      width: 240px;
+      height: 240px;
       background: radial-gradient(circle, rgba(255,255,255,0.18), transparent 70%);
       border-radius: 50%;
       animation: floatGlow 6s ease-in-out infinite;
       pointer-events: none;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      bottom: -80px;
-      left: -60px;
-      width: 220px;
-      height: 220px;
-      background: radial-gradient(circle, rgba(223,247,241,0.16), transparent 70%);
-      border-radius: 50%;
-      animation: floatGlow 7s ease-in-out infinite reverse;
-      pointer-events: none;
+    .app-icon-hero {
+      width: 76px;
+      height: 76px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      flex-shrink: 0;
     }
 
-    .eyebrow {
-      display: inline-block;
-      background: rgba(255,255,255,0.14);
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      letter-spacing: 0.03em;
-      margin-bottom: 16px;
-    }
+    .hero-text { flex: 1; min-width: 200px; }
 
     .hero h1 {
-      margin: 0 0 12px;
-      font-size: clamp(1.9rem, 6vw, 3.4rem);
+      margin: 0 0 8px;
+      font-size: clamp(1.7rem, 5vw, 2.6rem);
       line-height: 1.1;
     }
 
     .hero p {
-      margin: 0 auto;
-      max-width: 620px;
-      color: rgba(255, 255, 255, 0.92);
-      font-size: clamp(0.95rem, 2.4vw, 1.1rem);
-    }
-
-    /* Section headers */
-    .section-head {
-      text-align: center;
-      margin: 56px 0 26px;
-    }
-
-    .section-head h2 {
-      margin: 0 0 8px;
-      font-size: clamp(1.4rem, 3.5vw, 2rem);
-      color: var(--text);
-    }
-
-    .section-head p {
-      margin: 0 auto;
-      max-width: 560px;
-      color: var(--muted);
-      font-size: clamp(0.92rem, 2.2vw, 1rem);
-    }
-
-    /* App card */
-    .app-card {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 24px;
-      box-shadow: var(--shadow);
-      text-decoration: none;
-      color: var(--text);
-      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
-      opacity: 0;
-      transform: translateY(18px);
-    }
-
-    .app-card.visible {
-      animation: fadeUp 0.6s ease-out forwards;
-    }
-
-    .app-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 26px 60px rgba(20, 32, 51, 0.16);
-      border-color: var(--primary);
-    }
-
-    .app-icon {
-      width: 64px;
-      height: 64px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, #22c55e, #0f766e);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 1.6rem;
-      flex-shrink: 0;
-      animation: pulseRing 2.4s infinite;
-    }
-
-    .app-info {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .app-info h3 {
-      margin: 0 0 6px;
-      font-size: clamp(1.05rem, 2.6vw, 1.25rem);
-    }
-
-    .app-info p {
-      margin: 0 0 10px;
-      color: var(--muted);
-      font-size: clamp(0.88rem, 2vw, 0.95rem);
-    }
-
-    .app-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .tag {
-      background: var(--surface-soft);
-      border: 1px solid #d4e4ff;
-      color: var(--primary-dark);
-      font-size: 0.75rem;
-      padding: 5px 11px;
-      border-radius: 999px;
-    }
-
-    .app-arrow {
-      flex-shrink: 0;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: var(--surface-soft);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary-dark);
-      font-size: 1.2rem;
-      transition: background 0.25s ease, transform 0.25s ease;
-    }
-
-    .app-card:hover .app-arrow {
-      background: var(--primary);
-      color: #fff;
-      transform: translateX(4px);
-    }
-
-    /* Services */
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin-top: 10px;
-    }
-
-    .service-card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: var(--shadow);
-      opacity: 0;
-      transform: translateY(18px);
-      transition: transform 0.25s ease, border-color 0.25s ease;
-    }
-
-    .service-card.visible {
-      animation: fadeUp 0.6s ease-out forwards;
-    }
-
-    .service-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--primary);
-    }
-
-    .service-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      margin-bottom: 12px;
-    }
-
-    .service-card h4 {
-      margin: 0 0 6px;
-      font-size: 1rem;
-    }
-
-    .service-card p {
       margin: 0;
-      color: var(--muted);
-      font-size: 0.9rem;
+      max-width: 600px;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: clamp(0.92rem, 2.4vw, 1.05rem);
     }
 
-    /* Footer */
-    .footer-band {
-      margin-top: 56px;
-      text-align: center;
+    .card {
+      margin-top: 16px;
       background: var(--surface);
       border: 1px solid var(--line);
       border-radius: 22px;
-      padding: 26px 20px;
+      padding: 22px 20px;
       box-shadow: var(--shadow);
+      opacity: 0;
+      transform: translateY(18px);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
     }
 
-    .footer-band p {
-      margin: 0 0 6px;
+    .card.visible { animation: fadeUp 0.6s ease-out forwards; }
+
+    .card:hover {
+      box-shadow: 0 24px 55px rgba(20, 32, 51, 0.14);
+      transform: translateY(-3px);
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(1.1rem, 3vw, 1.35rem);
+      color: var(--primary-dark);
+    }
+
+    p { margin: 0 0 14px; color: var(--muted); font-size: clamp(0.92rem, 2.2vw, 1rem); }
+
+    ul { margin: 0; padding-left: 20px; color: var(--muted); font-size: clamp(0.92rem, 2.2vw, 1rem); }
+    li + li { margin-top: 10px; }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .flow-step {
+      background: var(--surface-soft);
+      border: 1px solid #d4e4ff;
+      border-radius: 16px;
+      padding: 14px;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .flow-step:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+      background: #e4f0ff;
+    }
+
+    .flow-step strong { display: block; margin-bottom: 6px; color: var(--text); }
+
+    .links-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface-soft);
+      border: 1px solid #d4e4ff;
+      color: var(--primary-dark);
+      text-decoration: none;
+      padding: 11px 18px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background 0.25s ease, transform 0.25s ease;
+    }
+
+    .link-btn:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .note {
+      padding: 15px 16px;
+      border-radius: 16px;
+      background: var(--accent);
+      border: 1px solid #bcebdd;
+      color: #12453f;
+      font-size: clamp(0.92rem, 2.2vw, 1rem);
+    }
+
+    a.inline { color: var(--primary-dark); transition: color 0.2s ease; }
+    a.inline:hover { color: var(--primary); }
+
+    .footer {
+      margin-top: 18px;
+      text-align: center;
       color: var(--muted);
       font-size: 0.9rem;
     }
 
-    .footer-band a {
-      color: var(--primary-dark);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .footer-band a:hover {
-      color: var(--primary);
-    }
-
-    .copyright {
-      margin-top: 18px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.82rem;
-    }
-
     @media (max-width: 640px) {
-      .hero, .footer-band { border-radius: 22px; padding: 30px 18px; }
-      .app-card { flex-direction: column; text-align: center; padding: 22px 18px; }
-      .app-arrow { display: none; }
-      .app-tags { justify-content: center; }
-      .nav { flex-wrap: wrap; gap: 12px; }
+      .hero, .card { border-radius: 20px; padding: 20px 16px; }
+      .hero { flex-direction: column; text-align: center; }
+      .flow { grid-template-columns: 1fr; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -384,77 +238,88 @@
 </head>
 <body>
   <main class="wrap">
-    <nav class="nav">
-      <div class="brand">
-        <div class="brand-mark">MT</div>
-        Mirfan Tech Solutions
-      </div>
-      <a class="cta" href="#apps">Our Apps</a>
-    </nav>
+    <a class="back-link" href="/">← Mirfan Tech Solutions</a>
 
     <section class="hero">
-      <span class="eyebrow">Mobile App Development Studio</span>
-      <h1>Mirfan Tech Solutions</h1>
+      <div class="app-icon-hero">📇</div>
+      <div class="hero-text">
+        <h1>Smart Contact Scanner</h1>
+        <p>
+          Smart Contact Scanner is an Android app by Mirfan Tech Solutions that
+          scans photos, automatically detects phone numbers, and lets you save
+          them directly to your device contacts or Google Contacts — no manual
+          typing needed.
+        </p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>What This App Does</h2>
       <p>
-        We design and build reliable, user-friendly mobile applications
-        focused on real-world problems and everyday utility.
+        Whether it's a business card, a printed flyer, or a screenshot with a
+        phone number on it, Smart Contact Scanner reads the image, extracts
+        any phone numbers it finds, and lets you review and save them in
+        seconds.
+      </p>
+      <div class="flow">
+        <div class="flow-step">
+          <strong>1. Select Images</strong>
+          Choose a photo from your gallery.
+        </div>
+        <div class="flow-step">
+          <strong>2. Scan Numbers</strong>
+          The app reads the text and detects phone numbers.
+        </div>
+        <div class="flow-step">
+          <strong>3. Review Results</strong>
+          Extracted numbers are shown before you save anything.
+        </div>
+        <div class="flow-step">
+          <strong>4. Save Contacts</strong>
+          Save to your device or sync with Google Contacts.
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Key Features</h2>
+      <ul>
+        <li>Fast, accurate phone number detection from images</li>
+        <li>Duplicate detection against your existing contacts</li>
+        <li>Optional Google Contacts sync for cross-device access</li>
+        <li>Simple, review-before-you-save workflow</li>
+        <li>Secure account sign-in with Firebase Authentication</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Learn More</h2>
+      <p>
+        For details on what data the app collects and how it's used, read our
+        privacy policy below.
+      </p>
+      <div class="links-row">
+        <a class="link-btn" href="/privacy-policy/apps/smart-contact-scanner.html">🔒 Privacy Policy</a>
+        <a class="link-btn" href="mailto:smart.contact.scanner.pro@gmail.com">✉️ Contact Support</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <p class="note">
+        Developed and maintained by <strong>Mirfan Tech Solutions</strong>.
+        For questions or support, reach us at
+        <a class="inline" href="mailto:smart.contact.scanner.pro@gmail.com">smart.contact.scanner.pro@gmail.com</a>.
       </p>
     </section>
 
-    <div id="apps" class="section-head">
-      <h2>Our Apps</h2>
-      <p>Explore our published applications and their privacy policies.</p>
-    </div>
-
-<a class="app-card" href="/apps/smart-contact-scanner.html">
-      <div class="app-icon">📇</div>
-      <div class="app-info">
-        <h3>Smart Contact Scanner</h3>
-        <p>Scan images, extract phone numbers instantly, and save them straight to your contacts or Google Contacts.</p>
-        <div class="app-tags">
-          <span class="tag">Privacy Policy</span>
-          <span class="tag">Android</span>
-        </div>
-      </div>
-      <div class="app-arrow">→</div>
-    </a>
-
-    <div class="section-head">
-      <h2>What We Do</h2>
-      <p>End-to-end mobile solutions, from idea to Play Store.</p>
-    </div>
-
-    <div class="services">
-      <div class="service-card">
-        <div class="service-icon">📱</div>
-        <h4>App Development</h4>
-        <p>Native and cross-platform mobile apps built for performance and reliability.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🔧</div>
-        <h4>Maintenance & Support</h4>
-        <p>Ongoing updates, bug fixes, and feature improvements after launch.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">☁️</div>
-        <h4>Cloud & Backend</h4>
-        <p>Firebase-powered backends for authentication, data, and real-time sync.</p>
-      </div>
-    </div>
-
-    <section class="footer-band">
-      <p>Have a project in mind or a question about one of our apps?</p>
-      <a href="mailto:smart.contact.scanner.pro@gmail.com">smart.contact.scanner.pro@gmail.com</a>
-    </section>
-
-    <p class="copyright">© Mirfan Tech Solutions</p>
+    <p class="footer">© Mirfan Tech Solutions — Smart Contact Scanner</p>
   </main>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      var items = document.querySelectorAll('.app-card, .service-card');
+      var cards = document.querySelectorAll('.card');
       if (!('IntersectionObserver' in window)) {
-        items.forEach(function (el) { el.classList.add('visible'); });
+        cards.forEach(function (c) { c.classList.add('visible'); });
         return;
       }
       var observer = new IntersectionObserver(function (entries) {
@@ -462,12 +327,12 @@
           if (entry.isIntersecting) {
             setTimeout(function () {
               entry.target.classList.add('visible');
-            }, i * 70);
+            }, i * 60);
             observer.unobserve(entry.target);
           }
         });
       }, { threshold: 0.12 });
-      items.forEach(function (el) { observer.observe(el); });
+      cards.forEach(function (card) { observer.observe(card); });
     });
   </script>
 </body>
