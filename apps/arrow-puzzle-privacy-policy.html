@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arrow Puzzle Privacy Policy</title>
+<link rel="icon" href="favicon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --paper: #faf9f6;
+    --paper-tint: #f3ede4;
+    --ink: #1c1a17;
+    --ink-soft: #4a453d;
+    --grey: #6b6459;
+    --hairline: #e2ddd2;
+    --accent: #8a4a2f;
+    --accent-soft: #b06840;
+    --good-bg: #eef3ea;
+    --good-ink: #3c5c2e;
+    --no-bg: #f7ece8;
+    --no-ink: #8a3a24;
+    --focus: #8a4a2f;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #17140f;
+      --paper-tint: #1e1a14;
+      --ink: #ece7dd;
+      --ink-soft: #c7bfaf;
+      --grey: #948a78;
+      --hairline: #322c22;
+      --accent: #d68e5f;
+      --accent-soft: #b56a3e;
+      --good-bg: #1e2a19;
+      --good-ink: #9dc687;
+      --no-bg: #2b1a14;
+      --no-ink: #e0947b;
+      --focus: #d68e5f;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  a { color: var(--accent); text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent); text-underline-offset: 2px; }
+  a:hover { text-decoration-color: var(--accent); }
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .page {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- Masthead ---------- */
+  .masthead {
+    border-bottom: 1px solid var(--hairline);
+    padding: 40px 0 28px;
+  }
+  .masthead-inner {
+    max-width: 68ch;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .kicker {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .kicker .glyph {
+    display: inline-flex;
+    width: 20px; height: 20px;
+    align-items: center; justify-content: center;
+    border: 1.5px solid var(--accent);
+    border-radius: 5px;
+    font-size: 12px;
+    line-height: 1;
+  }
+  h1 {
+    font-family: "Source Serif 4", ui-serif, Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 1.6rem + 1.6vw, 2.75rem);
+    line-height: 1.12;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .masthead-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 22px;
+    font-size: 14px;
+    color: var(--grey);
+  }
+  .masthead-meta strong { color: var(--ink-soft); font-weight: 600; }
+
+  /* ---------- Layout: rail + document ---------- */
+  .layout {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 68ch);
+    gap: 56px;
+    justify-content: center;
+    padding: 44px 0 88px;
+    align-items: start;
+  }
+
+  nav.rail {
+    position: sticky;
+    top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 13.5px;
+  }
+  nav.rail a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    padding: 6px 0 6px 14px;
+    border-left: 2px solid var(--hairline);
+    transition: border-color .15s, color .15s;
+  }
+  nav.rail a:hover, nav.rail a:focus-visible {
+    color: var(--ink);
+    border-left-color: var(--accent-soft);
+  }
+  nav.rail .num {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    color: var(--grey);
+    margin-right: 8px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  main.doc { min-width: 0; }
+
+  .lede {
+    font-size: 17.5px;
+    color: var(--ink-soft);
+    margin: 0 0 40px;
+  }
+
+  /* ---------- Summary table ---------- */
+  .summary {
+    border: 1px solid var(--hairline);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 0 48px;
+    background: var(--paper-tint);
+  }
+  .summary-head {
+    padding: 14px 20px;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--grey);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .summary-rows { display: flex; flex-direction: column; }
+  .summary-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: center;
+    padding: 13px 20px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .summary-row:last-child { border-bottom: none; }
+  .summary-row .label { font-size: 14.5px; color: var(--ink); }
+  .summary-row .label .sub { display: block; font-size: 12.5px; color: var(--grey); margin-top: 1px; }
+  .pill {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.03em;
+    padding: 4px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .pill.good { background: var(--good-bg); color: var(--good-ink); }
+  .pill.no { background: var(--no-bg); color: var(--no-ink); }
+
+  /* ---------- Sections ---------- */
+  section.entry {
+    padding-top: 40px;
+    margin-top: 40px;
+    border-top: 1px solid var(--hairline);
+    scroll-margin-top: 24px;
+  }
+  section.entry:first-of-type { border-top: none; margin-top: 0; padding-top: 0; }
+
+  .entry-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .entry-num {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 14px;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+  h2 {
+    font-family: "Source Serif 4", ui-serif, Georgia, serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin: 0;
+    text-wrap: balance;
+  }
+  h3 {
+    font-family: "Source Sans 3", ui-sans-serif, sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--ink-soft);
+    margin: 26px 0 8px;
+  }
+  p { margin: 0 0 14px; color: var(--ink-soft); }
+  p:last-child { margin-bottom: 0; }
+  p code, li code {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.88em;
+    background: var(--paper-tint);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    color: var(--ink);
+  }
+
+  ul.plain { margin: 0 0 14px; padding-left: 22px; color: var(--ink-soft); }
+  ul.plain li { margin-bottom: 7px; }
+  ul.plain li:last-child { margin-bottom: 0; }
+  ul.plain li strong { color: var(--ink); font-weight: 600; }
+
+  .permit-list {
+    list-style: none;
+    margin: 0 0 14px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .permit-list li {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px 16px;
+    align-items: baseline;
+    padding: 11px 14px;
+    background: var(--paper-tint);
+    border-radius: 8px;
+  }
+  .permit-list .name { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 13px; color: var(--ink); }
+  .permit-list .why { grid-column: 1 / -1; font-size: 13.5px; color: var(--grey); }
+
+  .callout {
+    border-left: 3px solid var(--accent-soft);
+    background: var(--paper-tint);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    margin: 0 0 14px;
+  }
+  .callout strong { color: var(--ink); }
+
+  footer {
+    max-width: 68ch;
+    margin: 0 auto;
+    padding: 0 0 64px;
+    border-top: 1px solid var(--hairline);
+    padding-top: 28px;
+    font-size: 13.5px;
+    color: var(--grey);
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 880px) {
+    .layout { grid-template-columns: minmax(0, 68ch); }
+    nav.rail { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="kicker"><span class="glyph">&#10132;</span> Arrow Puzzle &middot; Legal</div>
+      <h1>Privacy Policy</h1>
+      <div class="masthead-meta">
+        <span><strong>Effective</strong> September 4, 2026</span>
+        <span><strong>App</strong> Arrow Puzzle</span>
+        <span><strong>Publisher</strong> Mirfantech</span>
+        <span><strong>Package</strong> com.mirfantech.arrow.puzzle</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="rail" aria-label="Sections">
+      <a href="#overview"><span class="num">01</span>Overview</a>
+      <a href="#local-data"><span class="num">02</span>Data stored on your device</a>
+      <a href="#advertising"><span class="num">03</span>Advertising &amp; AdMob</a>
+      <a href="#permissions"><span class="num">04</span>App permissions</a>
+      <a href="#children"><span class="num">05</span>Children's privacy</a>
+      <a href="#retention"><span class="num">06</span>Data retention &amp; deletion</a>
+      <a href="#changes"><span class="num">07</span>Changes to this policy</a>
+      <a href="#contact"><span class="num">08</span>Contact</a>
+    </nav>
+
+    <main class="doc">
+      <p class="lede">Arrow Puzzle is a single-player puzzle game. This page explains, plainly, what information the app touches, what a third-party advertising network (Google AdMob) collects on our behalf to show ads, and what we never ask for.</p>
+
+      <div class="summary">
+        <div class="summary-head">At a glance</div>
+        <div class="summary-rows">
+          <div class="summary-row">
+            <div class="label">Account or sign-in<span class="sub">no login, no email collected by the app itself</span></div>
+            <span class="pill no">Not collected</span>
+          </div>
+          <div class="summary-row">
+            <div class="label">Level progress, lives, hints, coins<span class="sub">saved locally on your device only</span></div>
+            <span class="pill good">Stored on-device</span>
+          </div>
+          <div class="summary-row">
+            <div class="label">Advertising identifiers &amp; ad interaction data<span class="sub">collected by Google AdMob to serve and measure ads</span></div>
+            <span class="pill good">Collected by AdMob</span>
+          </div>
+          <div class="summary-row">
+            <div class="label">Location, contacts, camera, microphone, photos<span class="sub">the app never requests access to any of these</span></div>
+            <span class="pill no">Not requested</span>
+          </div>
+        </div>
+      </div>
+
+      <section class="entry" id="overview">
+        <div class="entry-head"><span class="entry-num">01</span><h2>Overview</h2></div>
+        <p>Arrow Puzzle does not require an account, does not ask you to enter personal information, and does not run its own servers or backend — everything the game itself needs to function is generated on your device or bundled with the app.</p>
+        <p>The one exception is advertising: the app shows banner, interstitial, and rewarded ads through <strong>Google AdMob</strong>, and AdMob (as an independent data controller) collects a limited set of technical identifiers to select and measure those ads. Section 03 below covers exactly what that involves.</p>
+      </section>
+
+      <section class="entry" id="local-data">
+        <div class="entry-head"><span class="entry-num">02</span><h2>Data stored on your device</h2></div>
+        <p>The app saves your gameplay state using Android's standard local-storage mechanism (<code>shared_preferences</code>), entirely on your own device. This data is never transmitted to us or to any server we operate:</p>
+        <ul class="plain">
+          <li><strong>Level progress</strong> — which level you're currently on, and which levels you've completed.</li>
+          <li><strong>Lives</strong> — your remaining lives and when they last refilled.</li>
+          <li><strong>Hints</strong> — how many hints you have left.</li>
+          <li><strong>Coins &amp; rewards</strong> — in-game currency earned from levels and the daily spin.</li>
+          <li><strong>Daily spin status</strong> — whether today's free spin has already been claimed.</li>
+        </ul>
+        <p>Uninstalling the app removes this data along with it, since it never leaves your device.</p>
+      </section>
+
+      <section class="entry" id="advertising">
+        <div class="entry-head"><span class="entry-num">03</span><h2>Advertising &amp; AdMob</h2></div>
+        <p>Arrow Puzzle uses <strong>Google AdMob</strong> to display banner ads (shown at the bottom of some screens), interstitial ads (shown between levels), and rewarded ads (optional, watched in exchange for in-game rewards). To select relevant ads, measure how they perform, and guard against invalid activity, AdMob and its partner networks may collect:</p>
+        <ul class="plain">
+          <li>Your device's advertising identifier (Android's <code>AD_ID</code>) and general device information (model, OS version).</li>
+          <li>Approximate location derived from your IP address.</li>
+          <li>Ad interaction data — impressions, clicks, and how long an ad was viewed.</li>
+        </ul>
+        <p>This collection is performed by Google and its advertising partners, not by Arrow Puzzle directly, and is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a> and <a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener">AdMob's data collection disclosure</a>. Where required by your region, you can manage ad personalization through your device's ad settings (<em>Settings &rarr; Privacy &rarr; Ads</em> on most Android devices) or through Google's <a href="https://adssettings.google.com" target="_blank" rel="noopener">Ads Settings</a>.</p>
+        <div class="callout"><strong>Note:</strong> ads may be temporarily unavailable while the app's advertising configuration is being finalized. This does not change what's described above once ads are active.</div>
+      </section>
+
+      <section class="entry" id="permissions">
+        <div class="entry-head"><span class="entry-num">04</span><h2>App permissions</h2></div>
+        <p>Arrow Puzzle requests the following Android permissions, each used only for the purpose listed:</p>
+        <ul class="permit-list">
+          <li>
+            <span class="name">android.permission.INTERNET</span>
+            <span class="pill good">Required</span>
+            <span class="why">Lets the app request and display ads from AdMob's servers.</span>
+          </li>
+          <li>
+            <span class="name">android.permission.ACCESS_NETWORK_STATE</span>
+            <span class="pill good">Required</span>
+            <span class="why">Lets AdMob adapt ad requests to your current connectivity.</span>
+          </li>
+          <li>
+            <span class="name">com.google.android.gms.permission.AD_ID</span>
+            <span class="pill good">Required</span>
+            <span class="why">Lets AdMob read the device's advertising identifier, used for ad targeting and frequency capping.</span>
+          </li>
+        </ul>
+        <p>The app does not request location, contacts, camera, microphone, storage, or photo-library access.</p>
+      </section>
+
+      <section class="entry" id="children">
+        <div class="entry-head"><span class="entry-num">05</span><h2>Children's privacy</h2></div>
+        <p>Arrow Puzzle is a general-audience puzzle game and is not directed at children under 13. We do not knowingly collect personal information from children. If AdMob's mixed-audience settings apply to your listing, ad requests are configured accordingly at the Play Console level to serve only non-personalized ads where required by applicable law (including COPPA).</p>
+      </section>
+
+      <section class="entry" id="retention">
+        <div class="entry-head"><span class="entry-num">06</span><h2>Data retention &amp; deletion</h2></div>
+        <p>Because gameplay data (Section 02) lives only on your device, you control its lifetime directly:</p>
+        <ul class="plain">
+          <li><strong>To reset progress</strong> — use the in-app restart option, where offered, or clear the app's storage from Android's <em>Settings &rarr; Apps &rarr; Arrow Puzzle &rarr; Storage</em>.</li>
+          <li><strong>To delete everything</strong> — uninstall the app; no copy remains anywhere else.</li>
+        </ul>
+        <p>Data collected by AdMob is retained and managed under Google's own retention policies, independent of this app — see the AdMob disclosure linked in Section 03 for how to request access to or deletion of that data.</p>
+      </section>
+
+      <section class="entry" id="changes">
+        <div class="entry-head"><span class="entry-num">07</span><h2>Changes to this policy</h2></div>
+        <p>If this policy changes — for example, if a future update adds a new feature that collects additional data — we'll update the effective date above and, where the change is material, note it here. Continued use of the app after an update means you accept the revised policy.</p>
+      </section>
+
+      <section class="entry" id="contact">
+        <div class="entry-head"><span class="entry-num">08</span><h2>Contact</h2></div>
+        <p>Questions about this policy or how Arrow Puzzle handles data can be sent to:</p>
+        <p><a href="mailto:ababeel.official.all.in.one@gmail.com">ababeel.official.all.in.one@gmail.com</a></p>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <span>Arrow Puzzle — Mirfantech</span>
+    <span>Effective September 4, 2026</span>
+  </footer>
+</div>
+</body>
+</html>
